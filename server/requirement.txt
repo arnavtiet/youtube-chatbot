@@ -41,17 +41,4 @@ json5>=0.9.14
 # HTTP client for API calls
 httpx>=0.25.0
 
-# Optional: For better async support
-asyncio>=3.4.3
 
-# Optional: For PDF processing (if needed later)
-PyPDF2>=3.0.1
-
-# Optional: For advanced text splitting
-unstructured>=0.10.0
-
-# Optional: For better tokenization
-transformers>=4.30.0
-
-# Optional: For caching
-diskcache>=5.6.3
