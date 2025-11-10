@@ -16,10 +16,38 @@ parts/
 sdist/
 var/
 wheels/
+pip-wheel-metadata/
+share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
 MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
 
 # Environment variables
 .env
@@ -58,11 +86,34 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# Package managers
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+bun.lockb
+
+# TypeScript
+*.tsbuildinfo
+
 # Frontend build
 client/dist/
 client/build/
 frontend/dist/
 frontend/build/
+dist/
+build/
+out/
+
+# Vite
+dist-ssr
+*.local
+.vite/
+
+# ESLint
+.eslintcache
+
+# Parcel
+.parcel-cache
 
 # Logs
 *.log
@@ -86,6 +137,17 @@ temp/
 *.index
 *.pkl
 *.joblib
+
+# API keys and configurations
+config.json
+secrets.json
+*.key
+*.pem
+
+# YouTube API data
+youtube_data/
+transcripts/
+audio_files/
 
 # Jupyter Notebook
 .ipynb_checkpoints
