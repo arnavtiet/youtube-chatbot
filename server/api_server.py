@@ -205,6 +205,7 @@ def internal_error(error):
     }), 500
 
 if __name__ == '__main__':
+    jsonify({"status": "starting"})
     print("🚀 Starting YouTube Transcript Chatbot API...")
     print("📝 Available endpoints:")
     print("   GET  /api/health - Health check")
