@@ -343,3 +343,4 @@ storybook-static/
 
 # Local development
 .local/
+.vercel
