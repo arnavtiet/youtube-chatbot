@@ -205,7 +205,11 @@ def internal_error(error):
     }), 500
 
 if __name__ == '__main__':
-    jsonify({"status": "starting"})
+    # Get configuration from environment variables
+    port = int(os.getenv('PORT', os.getenv('API_PORT', '8080')))  # Default to 8080 for Vercel, fallback to API_PORT
+    host = os.getenv('HOST', os.getenv('API_HOST', '0.0.0.0'))
+    debug = os.getenv('FLASK_DEBUG', 'False').lower() == 'true'
+    
     print("🚀 Starting YouTube Transcript Chatbot API...")
     print("📝 Available endpoints:")
     print("   GET  /api/health - Health check")
@@ -214,6 +218,12 @@ if __name__ == '__main__':
     print("   GET  /api/transcript/current - Get current transcript info")
     print("   POST /api/transcript/clear - Clear loaded transcript")
     print("   GET  /api/conversation/history - Get conversation history")
-    print("\n🌐 Frontend should connect to: http://localhost:5001")
     
-    # app.run(debug=True, host='0.0.0.0', port=5001)
+    print(f"\n🔧 Server configuration:")
+    print(f"   Host: {host}")
+    print(f"   Port: {port}")
+    print(f"   Debug: {debug}")
+    print(f"\n🌐 API available at: http://{host}:{port}")
+    print(f"📡 Frontend should connect to: http://localhost:{port}")
+    
+    app.run(debug=debug, host=host, port=port)

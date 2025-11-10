@@ -15,7 +15,7 @@ def start_server_with_free_port():
     from api_server import app
     
     # Try ports in order: 5001, 5002, 5003, or find a random free port
-    preferred_ports = [5001]
+    preferred_ports = [num for num in range(5000,6000)]
     
     for port in preferred_ports:
         try:
