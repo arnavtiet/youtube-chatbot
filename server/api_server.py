@@ -12,10 +12,10 @@ load_dotenv()
 
 app = Flask(__name__)
 
-# Configure CORS for Next.js frontend
+# Configure CORS to allow all origins (for development)
 CORS(app, resources={
     r"/api/*": {
-        "origins": ["http://localhost:3000", "http://localhost:3001", "http://localhost:8080"],
+        "origins": "*",  # Allow all origins
         "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
         "allow_headers": ["Content-Type", "Authorization"]
     }
