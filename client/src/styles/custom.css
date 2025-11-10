@@ -1,0 +1,30 @@
+/* Custom styles for white buttons and inputs */
+@layer utilities {
+  button:focus,
+  input:focus,
+  textarea:focus {
+    @apply ring-2 ring-white ring-opacity-50;
+  }
+
+  /* White selection color */
+  ::selection {
+    background-color: white;
+    color: black;
+  }
+
+  /* White placeholder text in dark mode */
+  input::placeholder,
+  textarea::placeholder {
+    @apply text-gray-400;
+  }
+
+  /* White focus states for form elements */
+  .focus-white:focus {
+    @apply ring-2 ring-white ring-opacity-50 border-white;
+  }
+
+  /* White button hover states */
+  .btn-white:hover {
+    @apply bg-white text-black;
+  }
+}
