@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
-import json
+
 from dotenv import load_dotenv
 from backend.transcipt_gen import gettranscipt, extract_video_id
 from backend.database import chunk_text, build_vectorstore
@@ -204,26 +204,30 @@ def internal_error(error):
         "message": "Something went wrong on the server"
     }), 500
 
+# if __name__ == '__main__':
+#     # Get configuration from environment variables
+#     port = int(os.getenv('PORT', os.getenv('API_PORT', '8080')))  # Default to 8080 for Vercel, fallback to API_PORT
+#     host = os.getenv('HOST', os.getenv('API_HOST', '0.0.0.0'))
+#     debug = os.getenv('FLASK_DEBUG', 'False').lower() == 'true'
+    
+#     print("🚀 Starting YouTube Transcript Chatbot API...")
+#     print("📝 Available endpoints:")
+#     print("   GET  /api/health - Health check")
+#     print("   POST /api/transcript/extract - Extract transcript from YouTube URL")
+#     print("   POST /api/chat - Chat with transcript")
+#     print("   GET  /api/transcript/current - Get current transcript info")
+#     print("   POST /api/transcript/clear - Clear loaded transcript")
+#     print("   GET  /api/conversation/history - Get conversation history")
+    
+#     print(f"\n🔧 Server configuration:")
+#     print(f"   Host: {host}")
+#     print(f"   Port: {port}")
+#     print(f"   Debug: {debug}")
+#     print(f"\n🌐 API available at: http://{host}:{port}")
+#     print(f"📡 Frontend should connect to: http://localhost:{port}")
+    
+#     app.run(debug=debug, host=host, port=port)
 if __name__ == '__main__':
-    # Get configuration from environment variables
-    port = int(os.getenv('PORT', os.getenv('API_PORT', '8080')))  # Default to 8080 for Vercel, fallback to API_PORT
-    host = os.getenv('HOST', os.getenv('API_HOST', '0.0.0.0'))
-    debug = os.getenv('FLASK_DEBUG', 'False').lower() == 'true'
-    
-    print("🚀 Starting YouTube Transcript Chatbot API...")
-    print("📝 Available endpoints:")
-    print("   GET  /api/health - Health check")
-    print("   POST /api/transcript/extract - Extract transcript from YouTube URL")
-    print("   POST /api/chat - Chat with transcript")
-    print("   GET  /api/transcript/current - Get current transcript info")
-    print("   POST /api/transcript/clear - Clear loaded transcript")
-    print("   GET  /api/conversation/history - Get conversation history")
-    
-    print(f"\n🔧 Server configuration:")
-    print(f"   Host: {host}")
-    print(f"   Port: {port}")
-    print(f"   Debug: {debug}")
-    print(f"\n🌐 API available at: http://{host}:{port}")
-    print(f"📡 Frontend should connect to: http://localhost:{port}")
-    
-    app.run(debug=debug, host=host, port=port)
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
