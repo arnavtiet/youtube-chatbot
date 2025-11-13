@@ -19,6 +19,7 @@ requests>=2.31.0
 # Web framework and API
 flask>=3.0.0
 flask-cors>=4.0.0
+gunicorn>=22.0.0
 
 # Text processing and chunking
 nltk>=3.8.1
