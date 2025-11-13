@@ -230,4 +230,12 @@ def internal_error(error):
 if __name__ == '__main__':
     import os
     port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=port)
+    print("🚀 Starting YouTube Transcript Chatbot API...")
+    print("📝 Available endpoints:")
+    print("   GET  /api/health - Health check")
+    print("   POST /api/transcript/extract - Extract transcript from YouTube URL")
+    print("   POST /api/chat - Chat with transcript")
+    print("   GET  /api/transcript/current - Get current transcript info")
+    print("   POST /api/transcript/clear - Clear loaded transcript")
+    print("   GET  /api/conversation/history - Get conversation history")
