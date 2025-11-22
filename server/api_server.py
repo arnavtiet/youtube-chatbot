@@ -48,7 +48,7 @@ current_video_url = None
 
 # --- API Endpoints ---
 
-@app.get('/api/health', tags=["Health"])
+@app.get('/', tags=["Health"])
 def health_check():
     """Health check endpoint to ensure the API is running."""
     logger.info("Health check endpoint called")
